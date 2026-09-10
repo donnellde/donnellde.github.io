@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>太古遮天-仙侠玄幻小说在线阅读与书评社区</title>
+    <meta name="description" content="太古遮天是辰东创作的经典仙侠玄幻小说，本站提供太古遮天全文阅读、章节列表、角色介绍、书评讨论与同人作品推荐，与万千书友共探遮天世界的浩瀚与神秘。">
+    <meta name="keywords" content="太古遮天,辰东,遮天,仙侠小说,玄幻小说,小说阅读,书评,同人,叶凡,狠人大帝,无始大帝">
+    <style>
+        /* ===== 全局基础 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', Arial, sans-serif;
+            background-color: #0d1b2a;
+            color: #d4d4dc;
+            line-height: 1.7;
+            background-image: radial-gradient(circle at 20% 20%, rgba(76, 201, 240, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 0%, rgba(255, 215, 0, 0.06) 0%, transparent 40%);
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 顶部导航 ===== */
+        .site-header {
+            background-color: rgba(13, 27, 42, 0.9);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .logo a {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffd700;
+            letter-spacing: 2px;
+            text-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+        }
+        .logo span {
+            font-size: 0.9rem;
+            color: #9aa8b9;
+            margin-left: 8px;
+            font-weight: 300;
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 32px;
+        }
+        .main-nav a {
+            color: #c8d6e5;
+            font-size: 1rem;
+            padding: 8px 4px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .main-nav a:hover,
+        .main-nav a.active {
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 6px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .search-box input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: #e0e0e0;
+            width: 140px;
+            font-size: 0.9rem;
+        }
+        .search-box input::placeholder {
+            color: #7f8fa6;
+        }
+        .search-box button {
+            background: transparent;
+            border: none;
+            color: #ffd700;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-left: 6px;
+        }
+
+        /* ===== 移动端菜单 ===== */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            background: none;
+            border: none;
+        }
+        .menu-toggle span {
+            width: 26px;
+            height: 3px;
+            background-color: #ffd700;
+            border-radius: 3px;
+        }
+
+        /* ===== 主横幅 Hero ===== */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-text {
+            padding: 20px 0;
+        }
+        .hero-text h1 {
+            font-size: 3.2rem;
+            color: #ffd700;
+            margin-bottom: 12px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            letter-spacing: 4px;
+            line-height: 1.3;
+        }
+        .hero-text .subtitle {
+            font-size: 1.2rem;
+            color: #a4b0be;
+            margin-bottom: 24px;
+            font-style: italic;
+            border-left: 3px solid #ffd700;
+            padding-left: 16px;
+        }
+        .hero-text p {
+            color: #b0bec5;
+            margin-bottom: 28px;
+            font-size: 1.02rem;
+            max-width: 600px;
+        }
+        .btn-group {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            border: 1px solid transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #ffd700, #f5b700);
+            color: #0d1b2a;
+            box-shadow: 0 4px 18px rgba(255, 215, 0, 0.25);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+        .btn-outline {
+            border-color: #ffd700;
+            color: #ffd700;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-3px);
+        }
+        .hero-cover {
+            text-align: center;
+            position: relative;
+        }
+        .book-cover {
+            max-width: 280px;
+            margin: 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            background: linear-gradient(145deg, #1b2b3f, #0f1e2e);
+            padding: 10px;
+        }
+        .book-cover-inner {
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 8px;
+            padding: 20px 12px;
+            text-align: center;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .book-cover-inner .book-title {
+            font-size: 2.4rem;
+            color: #ffd700;
+            font-weight: 700;
+            letter-spacing: 8px;
+            writing-mode: vertical-lr;
+            text-orientation: upright;
+            margin: 10px 0;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .book-cover-inner .book-author {
+            color: #8b9bb4;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-top: 8px;
+        }
+        .book-cover-inner .book-ornament {
+            color: rgba(255, 215, 0, 0.5);
+            font-size: 1.2rem;
+            margin: 10px 0;
+            letter-spacing: 6px;
+        }
+
+        /* ===== 信息统计条 ===== */
+        .stats-bar {
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 20px 0;
+            margin: 40px 0 60px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+        .stat-item h3 {
+            font-size: 1.8rem;
+            color: #ffd700;
+            font-weight: 700;
+        }
+        .stat-item p {
+            color: #8899aa;
+            font-size: 0.9rem;
+            margin-top: 4px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== 章节连载区 ===== */
+        .section {
+            padding: 60px 0;
+        }
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+            padding-bottom: 14px;
+        }
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            position: relative;
+            padding-left: 18px;
+            font-weight: 600;
+        }
+        .section-header h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10%;
+            height: 80%;
+            width: 4px;
+            background: linear-gradient(to bottom, #ffd700, #ffd70000);
+            border-radius: 4px;
+        }
+        .section-header .more-link {
+            color: #ffd700;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .section-header .more-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 40px;
+        }
+        .chapter-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .chapter-item:hover {
+            background: rgba(255, 215, 0, 0.08);
+            border-left-color: #ffd700;
+            transform: translateX(5px);
+        }
+        .chapter-item .chapter-name {
+            color: #c8d6e5;
+            font-size: 0.95rem;
+        }
+        .chapter-item .chapter-date {
+            color: #7f8fa6;
+            font-size: 0.8rem;
+        }
+
+        /* ===== 角色卡 ===== */
+        .characters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+        .character-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 24px 18px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+        .character-card:hover {
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 215, 0, 0.03);
+        }
+        .character-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin: 0 auto 16px;
+            background: linear-gradient(135deg, #1f3a5f, #0d1b2a);
+            border: 2px solid #ffd700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #ffd700;
+            font-weight: 700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+        .character-card h3 {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .character-card .role-tag {
+            color: #ffd700;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        .character-card p {
+            color: #8899aa;
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+
+        /* ===== 世界观/设定 ===== */
+        .worldview {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        .worldview::after {
+            content: '道';
+            position: absolute;
+            right: -30px;
+            bottom: -50px;
+            font-size: 12rem;
+            color: rgba(255, 215, 0, 0.03);
+            font-weight: 900;
+        }
+        .worldview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .worldview-item {
+            padding: 20px;
+            border-left: 2px solid rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 0 10px 10px 0;
+        }
+        .worldview-item h3 {
+            color: #ffd700;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+        .worldview-item p {
+            color: #9aa8b9;
+            font-size: 0.9rem;
+        }
+
+        /* ===== 书评区 ===== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: border-color 0.3s;
+        }
+        .review-card:hover {
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        .review-card .review-title {
+            color: #e0e0e0;
+            font-weight: 600;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .review-card .review-text {
+            color: #9aa8b9;
+            font-size: 0.9rem;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+        .review-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #7f8fa6;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 12px;
+        }
+        .review-meta .reviewer {
+            color: #ffd700;
+        }
+
+        /* ===== 同人推荐 ===== */
+        .fanwork-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .fanwork-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+        .fanwork-card:hover {
+            transform: scale(1.03);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        .fanwork-cover {
+            height: 120px;
+            background: linear-gradient(135deg, #1f3a5f, #2c3e50);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffd700;
+            font-size: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .fanwork-info {
+            padding: 14px;
+        }
+        .fanwork-info h4 {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .fanwork-info p {
+            color: #7f8fa6;
+            font-size: 0.8rem;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 10px;
+            margin-bottom: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .faq-question {
+            padding: 18px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #c8d6e5;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.04);
+        }
+        .faq-question .icon {
+            color: #ffd700;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        .faq-answer {
+            padding: 0 24px 18px;
+            color: #9aa8b9;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            display: none;
+        }
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+        .faq-item.active .faq-question .icon {
+            transform: rotate(45deg);
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: rgba(0, 0, 0, 0.4);
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 50px 0 30px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        .footer-brand .logo {
+            font-size: 1.6rem;
+            color: #ffd700;
+            margin-bottom: 12px;
+        }
+        .footer-brand p {
+            color: #7f8fa6;
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .footer-col h4 {
+            color: #e0e0e0;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col a {
+            color: #7f8fa6;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover {
+            color: #ffd700;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            color: #5c6b7a;
+            font-size: 0.85rem;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            .characters-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .fanwork-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .reviews-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .worldview-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: rgba(13, 27, 42, 0.97);
+                padding: 20px;
+                border-bottom: 1px solid rgba(255, 215, 0, 0.2);
+            }
+            .main-nav.open {
+                display: block;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .search-box {
+                display: none;
+            }
+            .hero {
+                padding: 50px 0 30px;
+            }
+            .hero-text h1 {
+                font-size: 2.4rem;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .chapter-list {
+                grid-template-columns: 1fr;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .characters-grid,
+            .fanwork-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .worldview {
+                padding: 24px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+                letter-spacing: 2px;
+            }
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo">
+                <a href="#">太古遮天<span>书友会</span></a>
+            </div>
+            <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新章节</a></li>
+                    <li><a href="#">角色谱</a></li>
+                    <li><a href="#">世界观</a></li>
+                    <li><a href="#">书评区</a></li>
+                    <li><a href="#">同人作品</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索章节、角色...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主横幅 -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>太古遮天</h1>
+                    <div class="subtitle">弹指遮天，问鼎仙路</div>
+                    <p>辰东笔下经典仙侠巨作，讲述叶凡自地球崛起，历经万古沧桑，于红尘中争渡，征战星空古路，终证道成帝的传奇故事。这里有最壮阔的仙侠世界，最动人的情义纠葛，最震撼的帝路争锋。</p>
+                    <div class="btn-group">
+                        <a href="#" class="btn btn-primary">立即阅读</a>
+                        <a href="#" class="btn btn-outline">加入书架</a>
+                    </div>
+                </div>
+                <div class="hero-cover">
+                    <div class="book-cover">
+                        <div class="book-cover-inner">
+                            <div class="book-ornament">✦ ✦ ✦</div>
+                            <div class="book-title">太古遮天</div>
+                            <div class="book-author">辰东 著</div>
+                            <div class="book-ornament">✦ ✦ ✦</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>1800+</h3>
+                    <p>总章节数</p>
+                </div>
+                <div class="stat-item">
+                    <h3>500万+</h3>
+                    <p>书友收藏</p>
+                </div>
+                <div class="stat-item">
+                    <h3>9.2分</h3>
+                    <p>读者评分</p>
+                </div>
+                <div class="stat-item">
+                    <h3>120+</h3>
+                    <p>同人作品</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 最新章节 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>最新章节抢先看</h2>
+                <a href="#" class="more-link">查看全部章节 →</a>
+            </div>
+            <div class="chapter-list">
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千八百章 帝路尽头</span>
+                    <span class="chapter-date">2024-12-18</span>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千七百九十九章 轮回之秘</span>
+                    <span class="chapter-date">2024-12-15</span>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千七百九十八章 仙路争锋</span>
+                    <span class="chapter-date">2024-12-12</span>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千七百九十七章 古来今往</span>
+                    <span class="chapter-date">2024-12-09</span>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千七百九十六章 万古一叶</span>
+                    <span class="chapter-date">2024-12-06</span>
+                </div>
+                <div class="chapter-item">
+                    <span class="chapter-name">第一千七百九十五章 遮天之路</span>
+                    <span class="chapter-date">2024-12-03</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要角色 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>主要角色 · 群英谱</h2>
+                <a href="#" class="more-link">完整角色列表 →</a>
+            </div>
+            <div class="characters-grid">
+                <div class="character-card">
+                    <div class="character-avatar">叶</div>
+                    <h3>叶凡</h3>
+                    <div class="role-tag">主角 · 荒古圣体</div>
+                    <p>自地球而出，踏遍星空万域，历经九死一生，终成一代天帝，开创属于自己的神话。</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">狠</div>
+                    <h3>狠人大帝</h3>
+                    <div class="role-tag">传奇 · 红尘仙</div>
+                    <p>不为成仙，只为在红尘中等你归来。惊艳万古的奇女子，一怒而星辰陨落。</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">无</div>
+                    <h3>无始大帝</h3>
+                    <div class="role-tag">大帝 · 人族守护</div>
+                    <p>仙路尽头谁为峰，一见无始道成空。镇压黑暗动乱，护佑人族万古。</p>
+                </div>
+                <div class="character-card">
+                    <div class="character-avatar">黑</div>
+                    <h3>黑皇</h3>
+                    <div class="role-tag">灵兽 · 无始旧友</div>
+                    <p>一条看似无良的大黑狗，实则来历惊人，精通无始大帝的诸多秘术。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 世界观设定 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>遮天世界观 · 设定详解</h2>
+                <a href="#" class="more-link">更多设定 →</a>
+            </div>
+            <div class="worldview">
+                <div class="worldview-grid">
+                    <div class="worldview-item">
+                        <h3>修炼体系</h3>
+                        <p>轮海、道宫、四极、化龙、仙台五大秘境，后有准帝、大帝、红尘仙等更高境界。每一境皆有无尽玄妙，是遮天世界最基础的修行路径。</p>
+                    </div>
+                    <div class="worldview-item">
+                        <h3>生命禁区</h3>
+                        <p>七大生命禁区，如太初古矿、不死山、神墟等，是远古至尊沉睡之地，蕴含大恐怖与大机缘。</p>
+                    </div>
+                    <div class="worldview-item">
+                        <h3>星空古路</h3>
+                        <p>通往成帝之路的试炼场，贯穿宇宙星海，汇聚各族天骄，是检验修士的终极战场。</p>
+                    </div>
+                    <div class="worldview-item">
+                        <h3>帝兵与仙器</h3>
+                        <p>极道帝兵为大帝证道之器，威能毁天灭地；传说中的仙器更是超脱凡俗，蕴含长生之秘。</p>
+                    </div>
+                    <div class="worldview-item">
+                        <h3>体质之谜</h3>
+                        <p>荒古圣体、先天道胎、神体、圣灵体……各色体质天赋异禀，决定修士的潜力上限。</p>
+                    </div>
+                    <div class="worldview-item">
+                        <h3>黑暗动乱</h3>
+                        <p>宇宙周期性的大劫难，源于禁区至尊的收割，是遮天世界最沉重的背景之一。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 书评精选 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>书友热评 · 共论遮天</h2>
+                <a href="#" class="more-link">进入书评区 →</a>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-title">论狠人大帝的深情与执念</div>
+                    <p class="review-text">“不为成仙，只为在红尘中等你归来。”狠人用一世又一世的轮回，诠释了什么是真正的执念。她惊艳了岁月，却也孤独了万古。</p>
+                    <div class="review-meta">
+                        <span class="reviewer">@星空旅人</span>
+                        <span>2024-12-10</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-title">叶凡的成长：从凡体到天帝</div>
+                    <p class="review-text">没有逆天体质，没有家族庇护，叶凡从地球一个普通青年开始，靠着自己的坚韧与智慧，一步步走向巅峰。他的故事激励了无数书友。</p>
+                    <div class="review-meta">
+                        <span class="reviewer">@大道三千</span>
+                        <span>2024-12-08</span>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <div class="review-title">遮天世界里的道与情</div>
+                    <p class="review-text">辰东构建的世界宏大而细腻，每一个配角都有血有肉。无论是庞博的兄弟情义，还是姬紫月的痴情守候，都让人动容。</p>
+                    <div class="review-meta">
+                        <span class="reviewer">@红尘漫步</span>
+                        <span>2024-12-05</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 同人推荐 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>同人创作 · 延续传奇</h2>
+                <a href="#" class="more-link">更多同人 →</a>
+            </div>
+            <div class="fanwork-grid">
+                <div class="fanwork-card">
+                    <div class="fanwork-cover">⚔</div>
+                    <div class="fanwork-info">
+                        <h4>《遮天外传：帝路遗篇》</h4>
+                        <p>作者：青云散人</p>
+                    </div>
+                </div>
+                <div class="fanwork-card">
+                    <div class="fanwork-cover">🌌</div>
+                    <div class="fanwork-info">
+                        <h4>《星空下的守望》</h4>
+                        <p>作者：月下独酌</p>
+                    </div>
+                </div>
+                <div class="fanwork-card">
+                    <div class="fanwork-cover">📜</div>
+                    <div class="fanwork-info">
+                        <h4>《叶凡同人：轮回之章》</h4>
+                        <p>作者：墨染青衣</p>
+                    </div>
+                </div>
+                <div class="fanwork-card">
+                    <div class="fanwork-cover">🐉</div>
+                    <div class="fanwork-info">
+                        <h4>《黑皇传》</h4>
+                        <p>作者：一叶知秋</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ 常见问题 -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>常见问题 FAQ</h2>
+            </div>
+            <div class="faq-section">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        《太古遮天》与《遮天》是什么关系？
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        《太古遮天》通常指辰东所著经典仙侠小说《遮天》的别称或同人衍生作品名。正版《遮天》于起点中文网连载，讲述了叶凡的成帝之路。本社区讨论基于原著设定展开，同时欢迎优秀的同人作品分享。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        如何快速了解遮天世界的修炼体系？
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        建议从五大秘境（轮海、道宫、四极、化龙、仙台）入手，这是最核心的修炼框架。之后再逐步了解准帝、大帝、红尘仙等更高境界，以及帝兵、体质、禁区等设定。本站“世界观”栏目有系统整理。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        在哪里可以阅读《遮天》的正版全文？
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        正版全文可在起点中文网或阅文集团旗下平台阅读，支持作者辰东。建议书友支持正版，获取最佳阅读体验并助力作者创作。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        如何参与同人创作或投稿？
+                        <span class="icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        您可在“书评区”板块发布自己的作品，或联系社区管理员。我们鼓励基于《遮天》世界观的二次创作，但请尊重原著版权，不进行商业用途的未授权使用。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">太古遮天</div>
+                    <p>一个专注于《遮天》系列的书友社区，提供最新资讯、深度解读与同人交流空间。与万千道友共赴仙路。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>阅读导航</h4>
+                    <ul>
+                        <li><a href="#">最新章节</a></li>
+                        <li><a href="#">角色大全</a></li>
+                        <li><a href="#">世界观设定</a></li>
+                        <li><a href="#">同人作品</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>社区互动</h4>
+                    <ul>
+                        <li><a href="#">书评广场</a></li>
+                        <li><a href="#">讨论区</a></li>
+                        <li><a href="#">同人征集</a></li>
+                        <li><a href="#">活动中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关推荐</h4>
+                    <ul>
+                        <li><a href="#">辰东其他作品</a></li>
+                        <li><a href="#">《完美世界》</a></li>
+                        <li><a href="#">《圣墟》</a></li>
+                        <li><a href="#">《深空彼岸》</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2024 太古遮天书友会 · 本页面仅为书友交流，版权归原著作者所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        menuToggle.addEventListener('click', function() {
+            mainNav.classList.toggle('open');
+        });
+
+        // FAQ 手风琴效果
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                // 关闭其他项
+                faqItems.forEach(other => {
+                    if (other !== item) {
+                        other.classList.remove('active');
+                    }
+                });
+                // 切换当前项
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+      </html>
