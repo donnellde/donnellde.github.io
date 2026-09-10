@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>东乡族吧-民族文化社区与东乡族交流平台</title>
+    <meta name="description" content="东乡族吧是专注于东乡族文化、历史、语言及生活方式的综合性社区平台，提供东乡族新闻资讯、传统节日、民俗风情、族友交流等丰富内容，欢迎每一位关心东乡族的朋友加入。">
+    <meta name="keywords" content="东乡族吧,东乡族,民族文化,东乡语,民俗节日,族友社区,东乡族文化,少数民族">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: #f5f6f8;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 头部 */
+        .site-header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: #fff;
+            padding: 18px 0;
+            border-bottom: 4px solid #f39c12;
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area h1 {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .logo-area p {
+            font-size: 14px;
+            opacity: 0.85;
+            margin-top: 4px;
+        }
+        .nav-trigger {
+            display: none;
+            background: none;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 26px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 6px 4px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
+        }
+        .main-nav a:hover {
+            border-bottom-color: #f39c12;
+        }
+        /* 首屏横幅 */
+        .hero {
+            background: #fff;
+            border-bottom: 1px solid #e4e7ed;
+            padding: 32px 0;
+        }
+        .hero-grid {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .hero-text {
+            flex: 1 1 300px;
+        }
+        .hero-text h2 {
+            font-size: 32px;
+            color: #1e3c72;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+        .hero-text p {
+            font-size: 17px;
+            color: #4a5a6a;
+            margin-bottom: 20px;
+        }
+        .hero-info-card {
+            flex: 1 1 260px;
+            background: #fafafa;
+            border-radius: 12px;
+            padding: 24px;
+            border-left: 5px solid #f39c12;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .hero-info-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: #1e3c72;
+        }
+        .hero-info-card ul {
+            list-style: none;
+        }
+        .hero-info-card li {
+            padding: 6px 0;
+            border-bottom: 1px dashed #ddd;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .hero-info-card li:last-child {
+            border-bottom: none;
+        }
+        /* 板块通用 */
+        .section {
+            margin: 40px 0;
+        }
+        .section-title {
+            font-size: 24px;
+            color: #1e3c72;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f39c12;
+            margin-bottom: 24px;
+            position: relative;
+            display: inline-block;
+            padding-right: 40px;
+        }
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #1e3c72;
+            opacity: 0.1;
+        }
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-top: 3px solid transparent;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-top-color: #f39c12;
+        }
+        .card h3 {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #5a6c7e;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .card-meta {
+            font-size: 13px;
+            color: #8a9baa;
+            display: flex;
+            justify-content: space-between;
+        }
+        .tag {
+            background: #eef2f7;
+            color: #1e3c72;
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        /* 双列布局 */
+        .two-col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+        .post-list {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .post-item {
+            display: flex;
+            padding: 14px 0;
+            border-bottom: 1px solid #f0f2f5;
+            gap: 14px;
+            align-items: flex-start;
+        }
+        .post-item:last-child {
+            border-bottom: none;
+        }
+        .post-rank {
+            background: #1e3c72;
+            color: #fff;
+            min-width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 0 6px;
+        }
+        .post-content h4 {
+            font-size: 16px;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+        .post-content h4 a {
+            color: inherit;
+            text-decoration: none;
+        }
+        .post-content h4 a:hover {
+            color: #f39c12;
+        }
+        .post-content p {
+            font-size: 14px;
+            color: #6b7c8c;
+        }
+        .post-time {
+            font-size: 13px;
+            color: #9aa9b7;
+            margin-top: 4px;
+        }
+        /* 侧栏 */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+        .widget {
+            background: #fff;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .widget-title {
+            font-size: 18px;
+            color: #1e3c72;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eef0f3;
+        }
+        .widget ul {
+            list-style: none;
+        }
+        .widget ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #edf0f3;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .widget ul li:last-child {
+            border-bottom: none;
+        }
+        .widget ul li span {
+            color: #f39c12;
+            font-weight: 700;
+        }
+        .event-date {
+            background: #f39c12;
+            color: #fff;
+            border-radius: 6px;
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        /* 民俗展示区 */
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 10px;
+        }
+        .culture-item {
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+            padding: 18px 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+        }
+        .culture-item:hover {
+            border-bottom-color: #f39c12;
+        }
+        .culture-icon {
+            font-size: 36px;
+            margin-bottom: 8px;
+        }
+        .culture-item h4 {
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #1e3c72;
+        }
+        .culture-item p {
+            font-size: 13px;
+            color: #7a8b9c;
+        }
+        /* 常见问题 */
+        .faq-list {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .faq-item {
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f2f5;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            font-size: 16px;
+            color: #1e3c72;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .faq-question::before {
+            content: "Q";
+            background: #1e3c72;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            flex-shrink: 0;
+        }
+        .faq-answer {
+            padding-left: 32px;
+            color: #4e5f6e;
+            font-size: 15px;
+        }
+        .faq-answer::before {
+            content: "A";
+            background: #f39c12;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        /* 页脚 */
+        .site-footer {
+            background: #1e2b3a;
+            color: #b0c0ce;
+            padding: 32px 0 24px;
+            margin-top: 50px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 24px;
+        }
+        .footer-grid h4 {
+            color: #fff;
+            font-size: 17px;
+            margin-bottom: 14px;
+        }
+        .footer-grid a {
+            color: #b0c0ce;
+            text-decoration: none;
+            display: block;
+            padding: 4px 0;
+            font-size: 14px;
+        }
+        .footer-grid a:hover {
+            color: #f39c12;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #2f4050;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #8899a6;
+        }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            .nav-trigger {
+                display: inline-block;
+            }
+            .main-nav {
+                width: 100%;
+                display: none;
+            }
+            .main-nav.open {
+                display: block;
+            }
+            .main-nav ul {
+                flex-direction: column;
+                gap: 10px;
+                padding-top: 10px;
+            }
+            .hero-grid {
+                flex-direction: column;
+            }
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                font-size: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            .culture-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo-area">
+            <h1>东乡族吧</h1>
+            <p>传承民族文化 · 凝聚族友力量</p>
+        </div>
+        <button class="nav-trigger" id="navToggle">☰ 菜单</button>
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">文化历史</a></li>
+                <li><a href="#">民俗节日</a></li>
+                <li><a href="#">东乡语</a></li>
+                <li><a href="#">族友交流</a></li>
+                <li><a href="#">资讯动态</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container hero-grid">
+        <div class="hero-text">
+            <h2>欢迎来到东乡族吧</h2>
+            <p>这里是了解东乡族、交流民族文化、分享生活点滴的线上家园。无论您是东乡族同胞，还是对东乡族文化感兴趣的朋友，都能在这里找到共鸣与收获。</p>
+            <p>我们致力于整理和传播东乡族的历史渊源、语言特色、传统节日以及当代发展，让更多人看见东乡、理解东乡。</p>
+        </div>
+        <div class="hero-info-card">
+            <h3>📌 东乡族速览</h3>
+            <ul>
+                <li><span>人口规模</span> 约30余万</li>
+                <li><span>主要聚居</span> 甘肃临夏等地</li>
+                <li><span>语言</span> 东乡语（阿尔泰语系）</li>
+                <li><span>著名节日</span> 开斋节、古尔邦节</li>
+                <li><span>特色美食</span> 东乡手抓、面点</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<main class="container">
+    <!-- 最新资讯与热门话题 -->
+    <section class="section">
+        <h2 class="section-title">🔥 最新动态</h2>
+        <div class="card-grid">
+            <article class="card">
+                <h3>东乡族文化展览在临夏举办</h3>
+                <p>近日一场以“多彩东乡”为主题的民族文化展览在临夏市举行，展示了传统服饰、手工艺品及历史图片，吸引众多市民参观。</p>
+                <div class="card-meta">
+                    <span class="tag">资讯</span>
+                    <span>2025-05-12</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3>东乡语保护与传承座谈会</h3>
+                <p>多位语言学者与东乡族代表共同探讨东乡语在当代社会的使用现状与保护措施，提出了数字化记录等新思路。</p>
+                <div class="card-meta">
+                    <span class="tag">文化</span>
+                    <span>2025-05-08</span>
+                </div>
+            </article>
+            <article class="card">
+                <h3>族友自发组织手抓美食节</h3>
+                <p>在兰州工作的东乡族青年自发举办美食聚会，以传统东乡手抓为主，吸引了众多外地朋友参与体验。</p>
+                <div class="card-meta">
+                    <span class="tag">活动</span>
+                    <span>2025-05-03</span>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 双列：热门讨论 + 社区侧栏 -->
+    <section class="section two-col">
+        <div>
+            <h2 class="section-title">💬 热门讨论</h2>
+            <div class="post-list">
+                <div class="post-item">
+                    <div class="post-rank">1</div>
+                    <div class="post-content">
+                        <h4><a href="#">大家家乡的东乡语现在还在日常使用吗？</a></h4>
+                        <p>我是在外工作的东乡族，发现家乡的孩子们很多都不会说东乡语了，想听听大家的看法。</p>
+                        <div class="post-time">回复 32 · 浏览 1.2k · 3天前</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-rank">2</div>
+                    <div class="post-content">
+                        <h4><a href="#">分享一组东乡族传统婚礼的老照片</a></h4>
+                        <p>从长辈那里找到的一些珍贵照片，记录了八十年代的婚礼习俗，和大家分享。</p>
+                        <div class="post-time">回复 28 · 浏览 980 · 5天前</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-rank">3</div>
+                    <div class="post-content">
+                        <h4><a href="#">东乡手抓的做法请教</a></h4>
+                        <p>想学习最地道的东乡手抓做法，有朋友愿意分享一下煮制技巧和蘸料配方吗？先谢过！</p>
+                        <div class="post-time">回复 41 · 浏览 2.3k · 1周前</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-rank">4</div>
+                    <div class="post-content">
+                        <h4><a href="#">在外东乡人如何保持文化认同</a></h4>
+                        <p>离开家乡很多年了，如何让孩子们了解自己的根？希望听听大家的经验。</p>
+                        <div class="post-time">回复 19 · 浏览 650 · 1周前</div>
+                    </div>
+                </div>
+                <div class="post-item">
+                    <div class="post-rank">5</div>
+                    <div class="post-content">
+                        <h4><a href="#">推荐几本关于东乡族历史的书</a></h4>
+                        <p>最近想深入研究东乡族历史，求靠谱的书籍或文献推荐，谢谢各位！</p>
+                        <div class="post-time">回复 12 · 浏览 430 · 2周前</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <aside class="sidebar">
+            <div class="widget">
+                <h3 class="widget-title">📅 近期节日</h3>
+                <ul>
+                    <li><span class="event-date">5月</span> 开斋节（预计）</li>
+                    <li><span class="event-date">6月</span> 花儿会</li>
+                    <li><span class="event-date">7月</span> 古尔邦节（预计）</li>
+                    <li><span class="event-date">9月</span> 圣纪节</li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h3 class="widget-title">🏷️ 热门标签</h3>
+                <ul style="flex-wrap: wrap; display: flex; gap: 6px;">
+                    <li style="border:none; padding:0;"><span style="color:#fff; background:#1e3c72; padding:3px 10px; border-radius:16px; font-size:13px;">#东乡语</span></li>
+                    <li style="border:none; padding:0;"><span style="color:#fff; background:#f39c12; padding:3px 10px; border-radius:16px; font-size:13px;">#手抓羊肉</span></li>
+                    <li style="border:none; padding:0;"><span style="color:#fff; background:#2a5298; padding:3px 10px; border-radius:16px; font-size:13px;">#民族文化</span></li>
+                    <li style="border:none; padding:0;"><span style="color:#fff; background:#5a6c7e; padding:3px 10px; border-radius:16px; font-size:13px;">#传统服饰</span></li>
+                </ul>
+            </div>
+            <div class="widget">
+                <h3 class="widget-title">👥 最新加入族友</h3>
+                <ul>
+                    <li>马小明 · 临夏</li>
+                    <li>妥玉芳 · 兰州</li>
+                    <li>马成龙 · 北京</li>
+                    <li>马阿英社 · 西宁</li>
+                    <li>穆萨 · 深圳</li>
+                </ul>
+            </div>
+        </aside>
+    </section>
+
+    <!-- 民俗文化展示 -->
+    <section class="section">
+        <h2 class="section-title">🎎 民俗风情</h2>
+        <div class="culture-grid">
+            <div class="culture-item">
+                <div class="culture-icon">🏡</div>
+                <h4>传统民居</h4>
+                <p>依山而建的土墙平顶房，冬暖夏凉，体现适应自然的智慧。</p>
+            </div>
+            <div class="culture-item">
+                <div class="culture-icon">🍖</div>
+                <h4>东乡手抓</h4>
+                <p>选用优质羊肉，清水煮制，蘸以椒盐，肉质鲜嫩无膻味。</p>
+            </div>
+            <div class="culture-item">
+                <div class="culture-icon">🎵</div>
+                <h4>花儿与音乐</h4>
+                <p>东乡族花儿高亢悠长，是西北民歌中独特的艺术形式。</p>
+            </div>
+            <div class="culture-item">
+                <div class="culture-icon">👗</div>
+                <h4>民族服饰</h4>
+                <p>女子戴盖头，男子穿长袍，服饰简洁大方又富有民族印记。</p>
+            </div>
+            <div class="culture-item">
+                <div class="culture-icon">📿</div>
+                <h4>手工艺</h4>
+                <p>刺绣、编织等手工艺代代相传，图案多取材于自然与生活。</p>
+            </div>
+            <div class="culture-item">
+                <div class="culture-icon">📜</div>
+                <h4>口传文学</h4>
+                <p>民间故事、谚语、叙事诗承载着东乡族的历史记忆与价值观。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 东乡语专区 -->
+    <section class="section">
+        <h2 class="section-title">🗣️ 东乡语学习角</h2>
+        <div class="card-grid">
+            <article class="card">
+                <h3>常用问候语</h3>
+                <p>“阿萨拉姆而来空” 是常见的问候，意为“愿平安与你同在”。学几句日常用语，拉近彼此距离。</p>
+                <div class="card-meta"><span class="tag">基础</span><span>更新于 5月</span></div>
+            </article>
+            <article class="card">
+                <h3>东乡语语音特点</h3>
+                <p>东乡语保留较多蒙古语族特征，同时受汉语、阿拉伯语影响，形成了独特的混合词汇体系。</p>
+                <div class="card-meta"><span class="tag">知识</span><span>1.2k阅读</span></div>
+            </article>
+            <article class="card">
+                <h3>数字1-10怎么说</h3>
+                <p>一（nige）、二（qoyar）、三（gurban）…… 东乡语数字与蒙古语有相似之处，但也有自己发音。</p>
+                <div class="card-meta"><span class="tag">入门</span><span>互动练习</span></div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 常见问题 FAQ -->
+    <section class="section">
+        <h2 class="section-title">❓ 常见问题</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">东乡族主要聚居在哪些地方？</div>
+                <div class="faq-answer">东乡族主要聚居在甘肃省临夏回族自治州东乡族自治县，周边县市以及新疆、青海等地也有分布。东乡族自治县是全国唯一的东乡族聚居区。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">东乡语属于什么语系？</div>
+                <div class="faq-answer">东乡语属于阿尔泰语系蒙古语族，但受汉语影响较深，有大量汉语借词，也有少量阿拉伯语、波斯语词汇。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">东乡族有哪些传统节日？</div>
+                <div class="faq-answer">东乡族信仰伊斯兰教，因此主要节日与宗教相关，如开斋节、古尔邦节、圣纪节等。此外也有带有地方特色的民俗活动。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">东乡族有哪些特色饮食？</div>
+                <div class="faq-answer">东乡族饮食以面食和牛羊肉为主，最著名的当属“东乡手抓羊肉”，此外还有多种花卷、馓子、油香等传统面点。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">如何更好地了解东乡族文化？</div>
+                <div class="faq-answer">可以通过阅读民族志书籍、参观民族文化展览、与东乡族朋友交流等方式深入了解。本吧也会持续整理文化资料，欢迎关注。</div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h4>关于我们</h4>
+                <a href="#">吧务团队</a>
+                <a href="#">加入我们</a>
+                <a href="#">联系邮箱</a>
+            </div>
+            <div>
+                <h4>内容板块</h4>
+                <a href="#">文化历史</a>
+                <a href="#">民俗节日</a>
+                <a href="#">东乡语教学</a>
+                <a href="#">族友相册</a>
+            </div>
+            <div>
+                <h4>友情链接</h4>
+                <a href="#">东乡族自治县人民政府</a>
+                <a href="#">中国民族宗教网</a>
+                <a href="#">民族文化宫</a>
+            </div>
+            <div>
+                <h4>帮助中心</h4>
+                <a href="#">吧规说明</a>
+                <a href="#">常见问题</a>
+                <a href="#">内容举报</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 东乡族吧 · 传承民族文化，共建精神家园</p>
+            <p style="margin-top:6px;">本页面为社区交流平台展示，如有不实信息请联系我们修正。</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('navToggle').addEventListener('click', function() {
+        var nav = document.getElementById('mainNav');
+        nav.classList.toggle('open');
+    });
+</script>
+</body>
+  </html>
